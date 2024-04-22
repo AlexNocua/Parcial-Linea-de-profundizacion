@@ -1,0 +1,12 @@
+:root {
+    /* colores de elementos  */
+    --color-titulo: #204760;
+    --color-subtitulo: #2c7491;
+    --color-text: #fff;
+
+
+    /* colores de los componentes */
+    --fondo-1: #fff;
+    --fondo-2: #dedede;
+    --fondo-3: #21717d;
+}

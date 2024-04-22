@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block form %}
+  <center>
+    <div class="displayGrid">
+      <div class="cards">
+        <h3 class="text-center">Productos Ingresados</h3>
+        {% for producto in productos %}
+          <div class="card_Interno mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Dato del porducto numero {{ loop.index }}</h5>
+              <p class="card-text">
+                <strong>Nombre del producto:</strong> {{ producto.nombre_producto }}
+              </p>
+              <p class="card-text">
+                <strong>Valor del producto:</strong> {{ producto.valor_producto }}
+              </p>
+              <p class="card-text">
+                <strong>Cantidad del producto:</strong> {{ producto.cantidad_producto }}
+              </p>
+              <a href="{{ url_for('eliminar', nombre_producto=producto.nombre_producto) }}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de querer eliminar este producto?')">Eliminar</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="cards w-100 d-flex justify-content-center align-items-center">
+        <div class="w-100">
+          <h3 class="">Editar Producto</h3>
+          <form action="/editar_producto" method="POST">
+            <div class="mb-3">
+              <label for="nombre_producto" class="form-label">Nombre del Producto:</label>
+              <input type="text" id="nombre_producto" name="nombre_producto" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label for="nuevo_nombre" class="form-label">Nuevo Nombre:</label>
+              <input type="text" id="nuevo_nombre" name="nuevo_nombre" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label for="nuevo_valor" class="form-label">Nuevo Valor:</label>
+              <input type="text" id="nuevo_valor" name="nuevo_valor" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label for="nueva_cantidad" class="form-label">Nueva Cantidad:</label>
+              <input type="text" id="nueva_cantidad" name="nueva_cantidad" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          </form>
+        </div>
+      </div>
+      <div class="cards w-100 d-flex justify-content-center align-items-center">
+        <div class="w-100">
+          <h3 class="card-title">Registrar nuevo producto</h3>
+          <form action="/guardar_producto" method="post">
+            <div class="mb-3">
+              <label for="n_producto" class="form-label">Nombre del producto</label>
+              <input name="n_producto" type="text" class="form-control" id="n_producto" required />
+            </div>
+            <div class="mb-3">
+              <label for="v_producto" class="form-label">Valor del producto</label>
+              <input name="v_producto" type="text" class="form-control" id="v_producto" required />
+            </div>
+            <div class="mb-3">
+              <label for="c_producto" class="form-label">Cantidad del producto</label>
+              <input name="c_producto" type="text" class="form-control" id="c_producto" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar producto</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </center>
+{% endblock %}

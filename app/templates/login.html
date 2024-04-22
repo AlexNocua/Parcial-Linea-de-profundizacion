@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block login %}
+  <div class="container">
+    <div class="form_Iniciar col-md-6 d-flex justify-content-center align-items-center">
+      <form action="/iniciarSesion" method="post" class="mt-2">
+        <h1 class="text-center mb-4">Iniciar sesión</h1>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input name="e_operario" type="text" class="form-control" id="email" required />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input name="p_operario" type="password" class="form-control" id="password" required />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </div>
+      </form>
+    </div>
+    <div class="form_Register col-md-6 d-flex justify-content-center align-items-center">
+      <form action="/guardar_operario" method="post" class="form mt-2">
+        <h1 class="text-center mb-4">Registrar un nuevo usuario</h1>
+        <div class="mb-3">
+          <label for="nombre_operario" class="form-label">Nombre del operario</label>
+          <input name="r_n_operaerio" type="text" class="form-control" id="nombre_operario" required />
+        </div>
+        <div class="mb-3">
+          <label for="correo_operario" class="form-label">Correo del operario</label>
+          <input name="r_c_operaerio" type="text" class="form-control" id="correo_operario" required />
+        </div>
+        <div class="mb-3">
+          <label for="password_operario" class="form-label">Contraseña</label>
+          <input name="r_p_operaerio" type="password" class="form-control" id="password_operario" required />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Registrar operario</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
